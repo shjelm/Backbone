@@ -1,8 +1,4 @@
-define([
-	'../libs/jquery/jquery.min',
-	'../libs/underscore/underscore',
-    '../libs/backbone/backbone.min',
-    'text!../../template/formTemplate.html'
+define(['jquery','underscore','backbone','text!../../template/formTemplate.html'
     ], function($, _, Backbone, formTemplate){
     	
 		var FormView = Backbone.View.extend({ 
@@ -14,9 +10,8 @@ define([
 	      },
 
 	      render: function(){
-	      	console.log(formTemplate);
-	      	
-	        this.$el.html(_.template(formTemplate));
+	      	var compiledTemplate = _.template(formTemplate);
+	        this.$el.html(compiledTemplate);
 	      }    
 	    });
 	    

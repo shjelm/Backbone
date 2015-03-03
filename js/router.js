@@ -1,8 +1,4 @@
-define([
-  'libs/jquery/jquery.min',
-  'libs/underscore/underscore',
-  'libs/backbone/backbone.min',
-  'View/mainView'
+define(['jquery','underscore','backbone','../js/View/mainView'
 ], function($, _, Backbone, MainView){
   var AppRouter = Backbone.Router.extend({
     routes: {
