@@ -1,16 +1,24 @@
-define(['jquery','underscore','backbone','text!../../template/formTemplate.html'
-    ], function($, _, Backbone, formTemplate){
+define(['jquery','underscore','backbone','text!../../template/formTemplate.html', 'text!../../template/responseTemplate.html'
+    ], function($, _, Backbone, formTemplate, responseTemplate){
     	
 		var FormView = Backbone.View.extend({ 
 
 	      el: '#content',
 
 	      initialize: function(){
-	        this.render();
+	        this.render(formTemplate);
+	      },
+	      
+	      events: {
+	      	"click .send": "sendInterface"
+	      },
+	      
+	      sendInterface: function(){
+	      	this.render(responseTemplate);
 	      },
 
-	      render: function(){
-	      	var compiledTemplate = _.template(formTemplate);
+	      render: function(templ){
+	      	var compiledTemplate = _.template(templ);
 	        this.$el.html(compiledTemplate);
 	      }    
 	    });
